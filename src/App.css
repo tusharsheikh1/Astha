@@ -1,0 +1,187 @@
+/* App.css - REFINED CODE */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  /* Use a generic serif font for a document look */
+  font-family: 'Times New Roman', Times, serif; 
+}
+
+/* --- Form Styling --- */
+/* (Keeping basic form styles from previous iteration for functionality) */
+.cover-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.cover-page-form label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.cover-page-form input,
+.cover-page-form textarea {
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.generate-btn {
+  background-color: #585858;
+  color: white;
+  padding: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+.generate-btn:hover {
+  background-color: #333;
+}
+
+
+/* --- Cover Page Display Styling --- */
+
+.cover-page {
+  /* Document size and boundary */
+  width: 210mm; 
+  min-height: 297mm; /* Ensure it looks like A4 */
+  padding: 25mm 20mm; 
+  border: 1px solid #eee; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #000;
+  background-color: white;
+}
+
+/* 1. Top Section (University/Department/Logo) */
+.top-section {
+    margin-bottom: 30px;
+}
+
+.university-name-display {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #8B0000; /* Subtle maroon/red color from image */
+    margin: 0;
+}
+
+.department-name-display {
+    font-size: 14pt;
+    font-weight: normal;
+    color: #000;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.university-logo {
+  max-width: 100px; /* Smaller logo size */
+  height: auto;
+  margin: 10px auto 40px auto;
+}
+
+/* 2. Assignment Details */
+.assignment-details {
+    margin-bottom: 50px;
+}
+
+.assignment-label {
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.assignment-topic {
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 5px 0 20px 0;
+}
+
+.course-title, .course-code {
+    font-size: 12pt;
+    margin: 2px 0;
+}
+
+/* 3. Submission Info Grid (Submitted To/By) */
+.submission-info-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 70px; /* Space between assignment details and submission info */
+}
+
+.info-block {
+    text-align: left;
+    width: 45%; /* Allocating space for two columns */
+    line-height: 1.5;
+}
+
+.info-block h4 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    display: inline-block;
+    color: #8B0000; /* Subtle maroon/red color */
+    border-bottom: 1px solid #8B0000;
+}
+
+/* Special styling for the 'Submitted By' block to match the image's right alignment */
+.submitted-by {
+    text-align: right; 
+}
+
+.submitted-by .label-by {
+    margin-right: 0; /* Override any centering */
+}
+
+/* Use <pre> tag styling to keep line breaks and spacing from form input */
+.info-block pre {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    margin: 0;
+    white-space: pre-wrap; /* Allows text to wrap */
+}
+
+
+/* 4. Date Section (Bottom) */
+.date-section {
+    margin-top: auto; /* Pushes date to the bottom of the page container */
+    padding-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.submitted-date-display {
+    font-size: 12pt;
+    margin: 0;
+}
+
+/* Actions below the Cover Page */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.download-btn {
+    background-color: #28a745;
+    color: white;
+}
