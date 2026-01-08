@@ -139,61 +139,76 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-sans text-slate-800 pb-20">
-      
       {/* --- Header --- */}
-      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-indigo-200 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            </div>
-            <span className="font-bold text-xl tracking-tight text-slate-900">Mess<span className="text-indigo-600">Mate</span></span>
-          </div>
+<header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    
+    {/* Improved Logo Section */}
+    <div className="flex items-center gap-2.5">
+      <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 ring-1 ring-black/5">
+        {/* Hot Bowl Icon */}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 11h16a1 1 0 0 1 1 1v.5c0 4.08-3.05 7.44-7 7.94V22h-4v-1.56c-3.95-.5-7-3.86-7-7.94V12a1 1 0 0 1 1-1z" />
+          <path d="M8 6v3" />
+          <path d="M12 5v4" />
+          <path d="M16 6v3" />
+        </svg>
+      </div>
+      <div className="flex flex-col">
+        <span className="font-bold text-lg leading-tight tracking-tight text-slate-900 hidden xs:inline">
+          Mess<span className="text-indigo-600">Mate</span>
+        </span>
+        <span className="font-bold text-lg leading-tight tracking-tight text-slate-900 xs:hidden">
+          Astha<span className="text-indigo-600">Chatrabas</span>
+        </span>
+        <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest hidden sm:block leading-none">Manager</span>
+      </div>
+    </div>
 
-          <div className="flex items-center gap-3">
-             <button onClick={handleReset} className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all" title="Reset All Data">
-               <RefreshIcon />
-             </button>
-             
-             <div className="relative">
-               <button 
-                onClick={() => setShowExportMenu(!showExportMenu)}
-                className="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 shadow-lg shadow-slate-200 transition-all active:scale-95"
-               >
-                 <DownloadIcon /> Export
+    {/* Right Side Buttons (Kept same as before) */}
+    <div className="flex items-center gap-3">
+        <button onClick={handleReset} className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all" title="Reset All Data">
+          <RefreshIcon />
+        </button>
+        
+        <div className="relative">
+          <button 
+           onClick={() => setShowExportMenu(!showExportMenu)}
+           className="flex items-center gap-2 bg-slate-900 text-white px-3 sm:px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 shadow-lg shadow-slate-200 transition-all active:scale-95"
+          >
+            <DownloadIcon /> <span className="hidden sm:inline">Export</span>
+          </button>
+          
+          {showExportMenu && (
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+               <button onClick={exportPDF} className="w-full text-left px-4 py-3 hover:bg-slate-50 text-sm flex items-center gap-2">
+                 <FileTextIcon /> Download PDF
                </button>
-               
-               {/* Export Dropdown */}
-               {showExportMenu && (
-                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <button onClick={exportPDF} className="w-full text-left px-4 py-3 hover:bg-slate-50 text-sm flex items-center gap-2">
-                      <FileTextIcon /> Download PDF
-                    </button>
-                    <button onClick={exportCSV} className="w-full text-left px-4 py-3 hover:bg-slate-50 text-sm flex items-center gap-2 border-t border-slate-100">
-                      <span className="font-mono font-bold text-green-600 px-1">X</span> Download CSV
-                    </button>
-                 </div>
-               )}
-             </div>
-          </div>
+               <button onClick={exportCSV} className="w-full text-left px-4 py-3 hover:bg-slate-50 text-sm flex items-center gap-2 border-t border-slate-100">
+                 <span className="font-mono font-bold text-green-600 px-1">X</span> Download CSV
+               </button>
+            </div>
+          )}
         </div>
-      </header>
+    </div>
+  </div>
+</header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
         
         {/* --- Dashboard Stats --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <StatCard label="Total Deposit" value={totalDeposit.toLocaleString()} color="blue" />
           <StatCard label="Total Meals" value={totalMeals.toString()} color="orange" />
           <StatCard label="Meal Rate" value={mealRate.toFixed(2)} subValue={`Tk / Meal`} color="emerald" />
         </div>
 
-        {/* --- Input & Table Section --- */}
+        {/* --- Input Section --- */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
           
           {/* Toolbar */}
           <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-50/50">
-            <h2 className="text-lg font-bold text-slate-700">Member Overview</h2>
+            <h2 className="text-lg font-bold text-slate-700 w-full sm:w-auto text-center sm:text-left">Member Overview</h2>
             <div className="flex w-full sm:w-auto shadow-sm rounded-lg overflow-hidden border border-slate-200 focus-within:ring-2 ring-indigo-500 ring-offset-1 transition-all">
               <input 
                 type="text" 
@@ -209,8 +224,8 @@ function App() {
             </div>
           </div>
 
-          {/* Table */}
-          <div className="overflow-x-auto">
+          {/* Desktop Table (Hidden on Mobile) */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">
@@ -295,6 +310,81 @@ function App() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Card View (Visible on Mobile) */}
+          <div className="md:hidden flex flex-col divide-y divide-slate-100">
+            {members.map((member) => {
+              const cost = member.meals * mealRate;
+              const balance = member.deposit - cost;
+              const isPositive = balance >= 0;
+              const isTopDepositor = member.deposit > 0 && member.deposit === maxDeposit;
+
+              return (
+                <div key={member.id} className="p-4 bg-white hover:bg-slate-50 transition-colors">
+                  {/* Card Header */}
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shadow-sm ${isTopDepositor ? 'bg-amber-100 text-amber-700 ring-2 ring-amber-400 ring-offset-1' : 'bg-slate-100 text-slate-600'}`}>
+                        {member.name.substring(0,2).toUpperCase()}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-slate-700">{member.name}</h3>
+                         {isTopDepositor && <span className="text-[10px] uppercase font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded w-fit block mt-0.5">Top Depositor</span>}
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => handleDelete(member.id)}
+                      className="p-2 text-slate-300 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all"
+                    >
+                      <TrashIcon />
+                    </button>
+                  </div>
+
+                  {/* Inputs Row */}
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Deposit</label>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg font-medium focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none shadow-sm"
+                        value={member.deposit || ''}
+                        placeholder="0"
+                        onChange={(e) => handleInputChange(member.id, 'deposit', e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Meals</label>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg font-medium focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none shadow-sm"
+                        value={member.meals || ''}
+                        placeholder="0"
+                        onChange={(e) => handleInputChange(member.id, 'meals', e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Status Bar */}
+                  <div className="bg-slate-50 rounded-xl p-3 border border-slate-100">
+                    <div className="flex justify-between items-center text-sm mb-2">
+                       <span className="text-slate-500">Cost: <span className="font-semibold text-slate-700">{cost.toFixed(0)}</span></span>
+                       <span className={`font-bold ${isPositive ? 'text-emerald-600' : 'text-rose-500'}`}>
+                          {isPositive ? 'Gets' : 'Pays'} {Math.abs(balance).toFixed(0)}
+                       </span>
+                    </div>
+                    <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div 
+                        className={`h-full rounded-full transition-all duration-500 ${isPositive ? 'bg-emerald-400' : 'bg-rose-400'}`}
+                        style={{ width: `${Math.min(Math.abs(balance) / (totalDeposit/members.length || 1) * 100, 100)}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           
           {members.length === 0 && (
